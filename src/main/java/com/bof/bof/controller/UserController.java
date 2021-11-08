@@ -8,10 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/patient")
 public class UserController {
-    @Autowired
+
     private UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("/createUser")
     public void createUser(@RequestBody User user) {
@@ -22,5 +26,7 @@ public class UserController {
     public Optional<User> readUser(@PathVariable Long id) {
         return userService.readUser(id);
     }
+
+
 
 }
