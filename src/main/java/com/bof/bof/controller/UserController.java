@@ -27,6 +27,6 @@ public class UserController {
         return userService.readUser(id);
     }
 
-
-
+    @RequestMapping("/readAge={id}")
+    public Optional<User> readAge(@PathVariable Long id) { }
 }

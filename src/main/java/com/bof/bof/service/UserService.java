@@ -19,4 +19,6 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public Optional<User> readAge(Long id) { return  userRepository.calculateAge()}
+
 }
