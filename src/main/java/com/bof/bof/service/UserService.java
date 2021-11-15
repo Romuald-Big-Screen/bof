@@ -5,6 +5,7 @@ import com.bof.bof.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 @Service
 public class UserService {
@@ -19,6 +20,6 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public Optional<User> readAge(Long id) { return  userRepository.calculateAge()}
+    public Optional<User> readAge(Long id) { return  userRepository.calculatorAge(String, birthdate); }
 
 }

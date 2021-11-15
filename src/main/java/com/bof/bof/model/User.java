@@ -12,12 +12,12 @@ public class User {
     private String lastName;
     private String gender;
     private String address;
-    private int birthdate;
+    private String  birthdate;
 
     public User() {
     }
 
-    public User(Long id, String firstName, String lastName, String gender, String address, int birthdate) {
+    public User(Long id, String firstName, String lastName, String gender, String address, String birthdate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -66,11 +66,11 @@ public class User {
         this.address = address;
     }
 
-    public int getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(int birthdate) {
+    public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 }
