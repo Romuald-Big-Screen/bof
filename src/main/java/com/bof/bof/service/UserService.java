@@ -21,7 +21,7 @@ public class UserService {
     }
 
     public Integer findAgeOfPatient(Long id) {
-        Integer year = UserRepository.findById(id).get().getBirthdate().getYear();
+        Integer year = userRepository.findById(id).get().getBirthdate().getYear();
         Integer actualYear = LocalDate.now().getYear();
         Integer age = actualYear - year;
         return age;

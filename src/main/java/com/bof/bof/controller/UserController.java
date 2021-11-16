@@ -10,12 +10,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/patient")
 public class UserController {
-
+    @Autowired
     private UserService userService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+
 
     @PostMapping("/createUser")
     public void createUser(@RequestBody User user) {
@@ -31,4 +29,7 @@ public class UserController {
     public Integer getPatientAge(@PathVariable Long id) {
         return userService.findAgeOfPatient(id);
     }
+
+
+
 }
