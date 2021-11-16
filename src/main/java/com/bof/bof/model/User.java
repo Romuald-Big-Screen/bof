@@ -1,6 +1,7 @@
 package com.bof.bof.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "patient")
@@ -12,12 +13,12 @@ public class User {
     private String lastName;
     private String gender;
     private String address;
-    private String  birthdate;
+    private LocalDate birthdate;
 
     public User() {
     }
 
-    public User(Long id, String firstName, String lastName, String gender, String address, String birthdate) {
+    public User(Long id, String firstName, String lastName, String gender, String address, LocalDate birthdate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -66,11 +67,11 @@ public class User {
         this.address = address;
     }
 
-    public String getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 }
