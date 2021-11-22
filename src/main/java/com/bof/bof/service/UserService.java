@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 @Service
 public class UserService {
     @Autowired
@@ -25,6 +28,32 @@ public class UserService {
         Integer actualYear = LocalDate.now().getYear();
         Integer age = actualYear - year;
         return age;
+    }
+
+    public void updatePatient(User user) {
+        User patientSelected = userRepository.findById(user.getId()).orElseThrow(() -> new RuntimeException("Patient not found"));
+        patientSelected.setLastName(user.getLastName());
+        patientSelected.setFirstName(user.getFirstName());
+        patientSelected.setBirthdate(user.getBirthdate());
+        patientSelected.setAddress(user.getAddress());
+        patientSelected.setGender(user.getGender());
+        userRepository.save(patientSelected);
+        System.out.println("Patient updated");
+    }
+
+    public void deletePatient(User user) {
+        userRepository.delete(user);
+        System.out.println("Patient deleted");
+    }
+
+    public List<User> findAllPatients() {
+        return userRepository.findAll();
+    }
+
+    public List<User> findAllPatientsWithSameName(String name) {
+        return userRepository.findAll().stream()
+                .filter(patient -> patient.getLastName().equalsIgnoreCase(name))
+                .collect(Collectors.toList());
     }
 
 }
