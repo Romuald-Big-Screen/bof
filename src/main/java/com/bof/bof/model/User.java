@@ -18,8 +18,8 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String firstName, String lastName, String gender, String address, LocalDate birthdate) {
-        this.id = id;
+    public User(String firstName, String lastName, String gender, String address, LocalDate birthdate) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
